@@ -21,8 +21,12 @@ jobs:
 
       - name: Build the package 🔧
         run: npm run build
+      
+      - name: Configure NPMJS 🔧
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Deploy to NPMJS 🚀
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPMJS_AUTH_TOKEN }}
-          npm publish
+        run: npm publish

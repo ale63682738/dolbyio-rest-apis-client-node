@@ -2,6 +2,7 @@ export * from './account';
 export * from './asset';
 export * from './cluster';
 export * from './director';
+export * from './monitoring';
 export * from './publishToken';
 export * from './stream';
 export * from './subscribeToken';

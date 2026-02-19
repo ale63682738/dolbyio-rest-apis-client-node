@@ -1,5 +1,6 @@
 {
     "navigationLinks": {
+        "Dolby OptiView": "https://optiview.dolby.com",
         "GitHub": "https://github.com/DolbyIO/dolbyio-rest-apis-client-node"
     },
     "includeVersion": true,

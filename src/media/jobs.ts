@@ -76,10 +76,7 @@ export const listAll = async (accessToken: JwtToken, options: ListAllJobsOptions
 
         const response = (await sendGet(requestOptions)) as JobsResponse;
 
-        for (let index = 0; index < response.jobs.length; index++) {
-            const object = response.jobs[index];
-            result.push(object);
-        }
+        result.push(...response.jobs);
 
         if (!response.next_token || response.next_token.length <= 0) {
             break;

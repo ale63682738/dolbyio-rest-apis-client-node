@@ -15,14 +15,23 @@ export * as assets from './assets';
 export * as cluster from './cluster';
 /**
  * APIs for the Dolby OptiView cloud transcoders.
- * @beta
  * @remarks Cloud transcoder usage is not currently available for general usage.
- * If you would like to opt in, please contact our Sales team
+ * If you would like to opt in, please contact our Sales team.
  */
 export * as transcoders from './transcoders';
+/** Access the Director APIs. */
 export * as director from './director';
+/**
+ * Access the Dolby OptiView live monitoring APIs.
+ * @remarks The live monitoring APIs are not currently available for general usage.
+ * If you would like to opt in, please contact our Sales team.
+ */
+export * as monitoring from './monitoring';
+/** Access the Publish Token APIs. */
 export * as publishToken from './publishToken';
+/** Access the Streams APIs. */
 export * as stream from './stream';
+/** Access the Subscribe Token APIs. */
 export * as subscribeToken from './subscribeToken';
 
 /**

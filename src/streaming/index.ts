@@ -11,6 +11,13 @@ export * as account from './account';
  */
 export * as assets from './assets';
 
+/**
+ * ## Media Distributions
+ *
+ * APIs to manage the media distributions.
+ */
+export * as mediaDistributions from './mediaDistributions';
+
 /** APIs to update the default and list the Dolby OptiView clusters of the account. */
 export * as cluster from './cluster';
 /**

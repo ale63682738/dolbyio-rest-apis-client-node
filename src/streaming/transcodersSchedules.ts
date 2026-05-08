@@ -134,7 +134,7 @@ export const getSchedule = async (apiSecret: string, scheduleId: string): Promis
  * @returns A {@link !Promise Promise} whose fulfillment handler receives an array of {@link TranscoderSchedule} objects.
  */
 export const listSchedules = async (apiSecret: string, options: ListTranscoderSchedulesSortOptions): Promise<TranscoderSchedule[]> => {
-    const params = {
+    const params: any = {
         sortBy: options.sortBy,
         page: options.page.toString(),
         itemsOnPage: options.itemsOnPage.toString(),
@@ -179,7 +179,7 @@ export const listSchedulesByTranscoder = async (
     transcoderId: string,
     options: ListTranscoderSchedulesSortOptions
 ): Promise<TranscoderSchedule[]> => {
-    const params = {
+    const params: any = {
         sortBy: options.sortBy,
         page: options.page.toString(),
         itemsOnPage: options.itemsOnPage.toString(),

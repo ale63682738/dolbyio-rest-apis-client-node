@@ -45,7 +45,7 @@ export const publish = async (publishingToken: string, streamName: string, strea
  * @returns A {@link SubscribeResponse} object through a {@link Promise}.
  */
 export const subscribe = async (streamName: string, streamAccountId?: string, publishingToken?: string): Promise<SubscribeResponse> => {
-    const body = {
+    const body: any = {
         streamName: streamName,
     };
     if (streamAccountId) body['streamAccountId'] = streamAccountId;

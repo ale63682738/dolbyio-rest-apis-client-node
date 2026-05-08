@@ -130,7 +130,7 @@ export const listTokens = async (apiSecret: string, options: ListSubscribeTokens
  * @returns A {@link !Promise Promise} whose fulfillment handler receives an array of {@link SubscribeToken} objects.
  */
 export const listTokensByName = async (apiSecret: string, options: ListSubscribeTokensByNameSortOptions): Promise<SubscribeToken[]> => {
-    const params = {
+    const params: any = {
         name: options.name,
         sortBy: options.sortBy,
         page: options.page.toString(),

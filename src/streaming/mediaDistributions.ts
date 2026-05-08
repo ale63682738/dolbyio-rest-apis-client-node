@@ -126,7 +126,7 @@ export const deleteMediaDistribution = async (apiSecret: string, mediaDistributi
  * @param apiSecret The API Secret used to authenticate this request.
  * @param updateRequest The request body for creating a new media asset.
  *
- * @returns A {@link !Promise Promise} whose fulfillment handler receives an {@link MediaDistribution} object.
+ * @returns A {@link !Promise Promise} whose fulfillment handler receives a {@link MediaDistribution} object.
  */
 export const updateMediaDistribution = async (apiSecret: string, updateRequest: UpdateMediaDistributionRequest) => {
     const body = {
@@ -158,7 +158,7 @@ export const updateMediaDistribution = async (apiSecret: string, updateRequest: 
  * @param apiSecret The API Secret used to authenticate this request.
  * @param mediaDistributionId The ID of the media distribution to get the security keys from.
  *
- * @returns A {@link !Promise Promise} whose fulfillment handler receives an {@link MediaDistribution} object.
+ * @returns A {@link !Promise Promise} whose fulfillment handler receives a {@link SecurityKey} object.
  */
 export const getSecurityKey = async (apiSecret: string, mediaDistributionId: string) => {
     const options = {
@@ -183,7 +183,7 @@ export const getSecurityKey = async (apiSecret: string, mediaDistributionId: str
  * @param apiSecret The API Secret used to authenticate this request.
  * @param createRequest The request body for creating a new security key.
  *
- * @returns A {@link !Promise Promise} whose fulfillment handler receives an {@link MediaDistribution} object.
+ * @returns A {@link !Promise Promise} whose fulfillment handler receives a {@link SecurityKey} object.
  */
 export const createSecurityKey = async (apiSecret: string, createRequest: CreaseSecurityKeyRequest) => {
     const body = {

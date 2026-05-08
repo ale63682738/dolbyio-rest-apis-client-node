@@ -29,7 +29,7 @@ const sendRequest = (options: SendRequestOptions) => {
     return new Promise<any>((resolve, reject) => {
         let path = options.path;
         if (options.params && Object.keys(options.params).length > 0) {
-            const searchParams = new URLSearchParams(options.params);
+            const searchParams = new URLSearchParams(options.params as any);
             path += `?${searchParams}`;
         }
 
@@ -42,6 +42,7 @@ const sendRequest = (options: SendRequestOptions) => {
         };
 
         // Override the User Agent
+        // @ts-ignore
         opts.headers['User-Agent'] = `DolbyIoRestApiSdk/${version}; Node/${process.versions.node}`;
 
         const req = https.request(opts, (res) => {
@@ -54,14 +55,14 @@ const sendRequest = (options: SendRequestOptions) => {
 
             res.on('end', () => {
                 if (data.length > 0) {
-                    if (res.statusCode < 200 || res.statusCode >= 400) {
+                    if (res.statusCode! < 200 || res.statusCode! >= 400) {
                         reject('This request has been rejected with the response code ' + res.statusCode + ' and description: ' + data);
                     } else {
                         const json = JSON.parse(data);
                         resolve(json);
                     }
                 } else {
-                    if (res.statusCode < 200 || res.statusCode >= 400) {
+                    if (res.statusCode! < 200 || res.statusCode! >= 400) {
                         reject('This request has been rejected with the response code ' + res.statusCode);
                     } else {
                         resolve(null);
@@ -178,7 +179,7 @@ export const download = (filepath: string, options: RequestOptions) => {
     return new Promise<void>((resolve, reject) => {
         let path = sendRequestOptions.path;
         if (sendRequestOptions.params && Object.keys(sendRequestOptions.params).length > 0) {
-            const searchParams = new URLSearchParams(sendRequestOptions.params);
+            const searchParams = new URLSearchParams(sendRequestOptions.params as any);
             path += `?${searchParams}`;
         }
 
@@ -191,11 +192,12 @@ export const download = (filepath: string, options: RequestOptions) => {
         };
 
         // Override the User Agent
+        // @ts-ignore
         opts.headers['User-Agent'] = `DolbyIoRestApiSdk/${version}; Node/${process.versions.node}`;
 
         const req = https.request(opts, (res) => {
             Logger.info(`[${opts.method}] ${res.statusCode} - https://${opts.hostname}${opts.path}`);
-            if (res.statusCode < 200 || res.statusCode >= 400) {
+            if (res.statusCode! < 200 || res.statusCode! >= 400) {
                 reject('This request has been rejected with the response code ' + res.statusCode);
                 return;
             }
@@ -248,7 +250,7 @@ export const upload = (filepath: string, uploadUrl: string) => {
         const req = coreHttps.request(uploadUrl, opts, (res) => {
             Logger.info(`[${opts.method}] ${res.statusCode} - ${uploadUrl}`);
 
-            if (res.statusCode < 200 || res.statusCode >= 400) {
+            if (res.statusCode! < 200 || res.statusCode! >= 400) {
                 reject('This request has been rejected with the response code ' + res.statusCode);
             } else {
                 resolve();

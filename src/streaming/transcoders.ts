@@ -25,7 +25,7 @@ import {
  * @returns A {@link !Promise Promise} whose fulfillment handler receives an array of {@link Transcoder} objects.
  */
 export const listTranscoders = async (apiSecret: string, options: ListTranscodersSortOptions): Promise<Transcoder[]> => {
-    const params = {
+    const params: any = {
         sortBy: options.sortBy,
         page: options.page.toString(),
         itemsOnPage: options.itemsOnPage.toString(),
@@ -263,7 +263,7 @@ export const stopTranscoder = async (apiSecret: string, transcoderId: string): P
  * @returns A {@link !Promise Promise} whose fulfillment handler receives an array of {@link TranscoderInstance} objects.
  */
 export const listTranscoderInstances = async (apiSecret: string, options: ListTranscodersInstancesSortOptions): Promise<TranscoderInstance[]> => {
-    const params = {
+    const params: any = {
         sortBy: options.sortBy,
         page: options.page.toString(),
         itemsOnPage: options.itemsOnPage.toString(),

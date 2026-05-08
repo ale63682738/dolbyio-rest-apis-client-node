@@ -78,7 +78,7 @@ export const updateAccountMediaAssetsExpirationRules = async (
  * @returns A {@link !Promise Promise} whose fulfillment handler receives an array of {@link StorageProfile} objects.
  */
 export const listStorageProfiles = async (apiSecret: string, options: ListStorageProfilesSortOptions): Promise<StorageProfile[]> => {
-    const params = {
+    const params: any = {
         sortBy: options.sortBy,
         page: options.page.toString(),
         itemsOnPage: options.itemsOnPage.toString(),

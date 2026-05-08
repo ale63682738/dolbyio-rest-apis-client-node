@@ -85,7 +85,7 @@ export const remove = async (apiSecret: string, webhookId: number): Promise<Webh
  * @returns A {@link !Promise Promise} whose fulfillment handler receives an array of {@link Webhook} objects.
  */
 export const list = async (apiSecret: string, listRequest: ListWebhooksRequest): Promise<Webhook[]> => {
-    const params = {};
+    const params: any = {};
     if (listRequest.startingId) {
         params['startingId'] = listRequest.startingId.toString();
     }

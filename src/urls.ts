@@ -19,17 +19,17 @@ export const initialize = (newHostnames: Hostnames): void => {
 };
 
 export const getApiHostname = (): string => {
-    return hostnames.api;
+    return hostnames.api!;
 };
 
 export const getRtsHostname = (): string => {
-    return hostnames.rts;
+    return hostnames.rts!;
 };
 
 export const getRtsDirectorHostname = (): string => {
-    return hostnames.rtsDirector;
+    return hostnames.rtsDirector!;
 };
 
 export const getMapiHostname = (): string => {
-    return hostnames.mapi;
+    return hostnames.mapi!;
 };

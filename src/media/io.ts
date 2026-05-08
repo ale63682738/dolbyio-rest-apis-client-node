@@ -71,8 +71,8 @@ export const getDownloadUrl = async (accessToken: JwtToken, dlbUrl: string): Pro
  * @param filePath Local path of the file you want to upload.
  */
 export const uploadFile = async (accessToken: JwtToken, dlbUrl: string, filePath: string): Promise<void> => {
-    const uploadUrl: string = await getUploadUrl(accessToken, dlbUrl);
-    return upload(filePath, uploadUrl);
+    const uploadUrl = await getUploadUrl(accessToken, dlbUrl);
+    return upload(filePath, uploadUrl!);
 };
 
 /**
@@ -87,9 +87,9 @@ export const uploadFile = async (accessToken: JwtToken, dlbUrl: string, filePath
  * @param filePath Local file path where to download the file to.
  */
 export const downloadFile = async (accessToken: JwtToken, dlbUrl: string, filePath: string): Promise<void> => {
-    let downloadUrl: string = await getDownloadUrl(accessToken, dlbUrl);
+    let downloadUrl = await getDownloadUrl(accessToken, dlbUrl);
 
-    downloadUrl = downloadUrl.replace('https://', '');
+    downloadUrl = downloadUrl!.replace('https://', '');
     const idx = downloadUrl.indexOf('/');
 
     const requestOptions: RequestOptions = {

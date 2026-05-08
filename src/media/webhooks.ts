@@ -14,7 +14,7 @@ import { UpdateWebhookOptions, Webhook } from './types/webhooks';
  * @returns The webhook identifier through a {@link Promise}.
  */
 export const registerWebhook = async (accessToken: JwtToken, url: string, headers?: http.OutgoingHttpHeaders): Promise<string | null> => {
-    const payload = {
+    const payload: any = {
         callback: {
             url: url,
         },
@@ -50,7 +50,7 @@ export const registerWebhook = async (accessToken: JwtToken, url: string, header
  * @param options Options to update the webhook.
  */
 export const updateWebhook = async (accessToken: JwtToken, options: UpdateWebhookOptions): Promise<void> => {
-    const payload = {
+    const payload: any = {
         callback: {
             url: options.url,
         },

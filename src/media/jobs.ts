@@ -14,7 +14,7 @@ import { ListJobsOptions, ListAllJobsOptions, JobsResponse, Job } from './types/
  * @returns A {@link JobsResponse} object through a {@link Promise}.
  */
 export const list = async (accessToken: JwtToken, options: ListJobsOptions): Promise<JobsResponse> => {
-    const params = {};
+    const params: any = {};
     if (options.submitted_after) {
         params['submitted_after'] = options.submitted_after;
     }
@@ -51,7 +51,7 @@ export const list = async (accessToken: JwtToken, options: ListJobsOptions): Pro
  * @returns An array of {@link Job} objects through a {@link Promise}.
  */
 export const listAll = async (accessToken: JwtToken, options: ListAllJobsOptions): Promise<Array<Job>> => {
-    const params = {};
+    const params: any = {};
     if (options.submitted_after) {
         params['submitted_after'] = options.submitted_after;
     }

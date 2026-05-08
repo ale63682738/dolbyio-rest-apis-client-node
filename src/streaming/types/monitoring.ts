@@ -1,3 +1,4 @@
+import { inherits } from 'util';
 import { ListSortOptions } from './core';
 
 export interface ListStreamsResponse {
@@ -15,8 +16,23 @@ export interface ListStreamsResponse {
     data: StreamDetails[];
 }
 
-/** Represents a stream details. */
-export interface StreamDetails {
+export interface ListStreamSummariesResponse {
+    /** Pagination object. */
+    pagination?: {
+        /** Total number of items. */
+        totalItems: number;
+        /** Total number of pages. */
+        totalPages: number;
+        /** Number of items in that page. */
+        itemsOnPage: number;
+    };
+
+    /** Array of stream details. */
+    data: StreamSummary[];
+}
+
+/** Represents a stream summary. */
+export interface StreamSummary {
     /** Identifier of the stream. */
     streamId: string;
     /** Name of the stream. */
@@ -39,6 +55,10 @@ export interface StreamDetails {
     endTime: string;
     /** Viewer count. */
     viewerCount: number;
+}
+
+/** Represents a stream details. */
+export interface StreamDetails extends StreamSummary {
     /** Has redundant stream. */
     hasRedundant: boolean;
     /** Restreaming enabled. */
@@ -180,7 +200,7 @@ export interface FeedStats {
 }
 
 /** Represents the options to sort the response for listing all the streams. */
-export interface ListAllStreamsSortOptions {
+export interface ListAllStreamSummariesSortOptions {
     /** How to sort the response. */
     sortBy: 'Live';
     /** Active streams. */
@@ -191,20 +211,27 @@ export interface ListAllStreamsSortOptions {
     isSecure?: boolean;
     /** Multi source streams. */
     isMultisource?: boolean;
-    /** Redundant streams. */
-    hasRedundant?: boolean;
     /** Filter the stream names. */
     searchSubstring?: string;
     /** Recorded allowed. */
     isRecordingAllowed?: boolean;
-    /** Restreaming streams. */
-    isRestreaming?: boolean;
     /** Identifier of the transcoder. */
     transcoderId?: string;
 }
 
+/** Represents the options to sort the response for listing all the streams. */
+export interface ListAllStreamsSortOptions extends ListAllStreamSummariesSortOptions {
+    /** Redundant streams. */
+    hasRedundant?: boolean;
+    /** Restreaming streams. */
+    isRestreaming?: boolean;
+}
+
 /** Represents the options to sort the response for listing streams. */
-export interface ListStreamsSortOptions extends ListAllStreamsSortOptions, ListSortOptions<'Live'> {}
+export interface ListStreamSummariesSortOptions extends ListAllStreamsSortOptions, ListSortOptions<'Live'> {}
+
+/** Represents the options to sort the response for listing streams. */
+export interface ListStreamsSortOptions extends ListStreamSummariesSortOptions {}
 
 /** Represents the options to query the stream details. */
 export interface GetStreamDetailsOptions {

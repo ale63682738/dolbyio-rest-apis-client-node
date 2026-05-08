@@ -131,7 +131,7 @@ export interface AssetResponseData {
     /** Optional, ID of the object. */
     id?: string | null;
     /** Required, type of the object. */
-    type: 'recording' | 'clip' | 'storageValidation' | 'timeline' | 'feed';
+    type: 'recording' | 'clip' | 'storageValidation' | 'timeline' | 'vod';
     /** Optional, information about the asset. */
     feed?: MediaAssetFeedSelectionModel;
     /** Required, ISO 8601 date string, Start time of clip. */
@@ -156,6 +156,10 @@ export interface AssetResponseData {
     metadata?: RecordMetadata;
     /** Optional, asset download URL. */
     download?: RecordDownloadUrl;
+    /** Optional, Media distribution ID. */
+    mediaDistributionId?: string | null;
+    /** Optional, custom path for VOD content. */
+    customPath?: string | null;
 }
 
 /**
